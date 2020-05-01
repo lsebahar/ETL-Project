@@ -6,10 +6,10 @@
 
 ## Data Sources
 
-We used five different datasets for our ETL Project. Four of the datasets came from the viewing histories of four different netflix viewers. We pulled the datasets directly from netflix user accounts (of family members with their permission!) as CSV files. The fifth dataset was derived from an API call to the OMDb API - The Open Movie Database.  Using user viewing data we ran through the list of Titles and inserted the Titles into the API to pull out information on the Movies from the OMBd database. 
+We used five different datasets for our ETL Project. Four of the datasets came from the viewing histories of four different netflix viewers. We pulled the datasets directly from netflix user accounts (of family members with their permission!) as CSV files. The fifth dataset was derived from an API call to the OMDb API - The Open Movie Database.  Using user viewing data we ran through the list of Titles and inserted the Titles into the API to pull out information on the Movies from the OMDb database. 
 
 
-### Data Extraxtion and Transformation
+### Data Extraction and Transformation
 
 The first step was to read in the CSV files for the four users using pandas. Once we had the user viewing data into panda dataframes, we extracted only the “Title” column from each data frame and set the values to a list.  We then combined those four lists together to create one list containing all of the titles from each viewer. 
 
