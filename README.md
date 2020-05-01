@@ -25,7 +25,7 @@ In anticipation of pushing our 5 dataframes to PostgreSQL, when made sure to res
 
 ### LOADING DATA...
 
-*  Final production database to load the data into (relational). 
+*  Final production database to load the data into PostgreSQL (relational database). 
 
 We chose to use a SQL (relational) database to load our data into because our data was already pretty structured and figured this would be the best database to be queried. There were multiple fields that could be joined on and the data was similar in function. Below is an example of our Create Table Statements and an example query statement.
 
