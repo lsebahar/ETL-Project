@@ -125,9 +125,9 @@ connection_string = 'postgres:postgres@localhost:####/DBname'
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Now you can query using SQL! 
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+<img src="Images/postgres_results.png" alt="Logo" width="200" height="100">
 
 
 
