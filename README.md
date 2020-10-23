@@ -28,7 +28,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/lsebahar/Netflix-OMDb-ETL">
-    <img src="netflix.png" alt="Logo" width="1000" height="300">
+    <img src="Images/netflix.png" alt="Logo" width="1000" height="300">
   </a>
 
   <h3 align="center">Netflix - OMDb ETL</h3>
