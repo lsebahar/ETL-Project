@@ -154,10 +154,10 @@ Project Link: [https://github.com/lsebahar/Netflix-OMDb-ETL](https://github.com/
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* [The Data Science & Visualization Bootcamp]
-* [UCSD Extension]
-* [Alex Perry]
-* [othneildrew (readme template)]
+* The Data Science & Visualization Bootcamp
+* UCSD Extension
+* Alex Perry (contributor; Github: alexrayperry)
+* othneildrew (readme template)
 
 
 
