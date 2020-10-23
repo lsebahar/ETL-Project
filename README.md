@@ -28,7 +28,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/lsebahar/Netflix-OMDb-ETL">
-    <img src="netflix.png" alt="Logo" width="1000" height="300">
+    <img src="Images/netflix.png" alt="Logo" width="1000" height="300">
   </a>
 
   <h3 align="center">Netflix - OMDb ETL</h3>
@@ -154,10 +154,10 @@ Project Link: [https://github.com/lsebahar/Netflix-OMDb-ETL](https://github.com/
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* [The Data Science & Visualization Bootcamp]
-* [UCSD Extension]
-* [Alex Perry]
-* [othneildrew (readme template)]
+* The Data Science & Visualization Bootcamp
+* UCSD Extension
+* Alex Perry (contributor; Github: alexrayperry)
+* othneildrew (readme template)
 
 
 
