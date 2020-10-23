@@ -91,22 +91,24 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-1) Download your Netflix viewing history
+1) Download your Netflix viewing history as CSV files
 
 2) Get an API key from OMDb
 
-3) Download PostgreSQL
+3) Install PostgreSQL
 
 4) Install Jupyter Notebook
 
 
 ### Installation
 
-1. Clone the repo
+1) Clone the repo
 ```sh
 git clone https://github.com/lsebahar/Netflix-OMDb-ETL.git
 ```
-2. Add a config.py file which contains the variable api_key (for your OMDb key) as well as the connection string to your postgreSQL application. 
+
+
+2) Add to the "Code" folder a config.py file which contains the variable api_key (for your OMDb key) as well as the connection string to your postgreSQL application. 
 <img src="Images/config_image.png" alt="Logo" width="200" height="100">
 
 ```sh
@@ -114,6 +116,10 @@ api_key = 'apikeyhere'
 connection_string = 'postgres:postgres@localhost:####/DBname'
 ```
 
+
+3) Add your CSV files to the "Netflix_Data" folder, and align with the code in "Code/ETL-Script.ipynb" (e.g. "User1.csv")
+
+4) Run the Jupyter Notebook cells 
 
 
 <!-- USAGE EXAMPLES -->
