@@ -127,7 +127,7 @@ connection_string = 'postgres:postgres@localhost:####/DBname'
 
 Now you can query using SQL! 
 
-<img src="Images/postgres_results.png" alt="Logo" width="200" height="100">
+<img src="Images/postgres_results.png" alt="Logo" width="800" height="600">
 
 
 
