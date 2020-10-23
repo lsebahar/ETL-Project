@@ -1,42 +1,180 @@
-# ETL Project NETFLIX!
-
-![Netflix](netflix.png)
-
-# Data Cleanup & Analysis
-
-## Data Sources
-
-We used five different datasets for our ETL Project. Four of the datasets came from the viewing histories of four different netflix viewers. We pulled the datasets directly from netflix user accounts (of family members with their permission!) as CSV files. The fifth dataset was derived from an API call to the OMDb API - The Open Movie Database.  Using user viewing data we ran through the list of Titles and inserted the Titles into the API to pull out information on the Movies from the OMDb database. 
-
-
-### Data Extraction and Transformation
-
-The first step was to read in the CSV files for the four users using pandas. Once we had the user viewing data into panda dataframes, we extracted only the “Title” column from each data frame and set the values to a list.  We then combined those four lists together to create one list containing all of the titles from each viewer. 
-
-The next step was to remove duplicate values within our list. So, we converted the list into a dictionary, using the list items as keys, and converted the dictionary back into a list. This effectively removed duplicates because dictionaries cannot have duplicate keys. 
-
-Now on to the API pull…
-
-We set up our url parameters using the parameters from the OMBd documentation for pulling data by title. With the url string saved to a variable we ran a for loop on our title list (re-defined to movie list) and ran through the list pulling each title out and entering it to our url as a parameter and getting the title information from OMBd as json data.and appending the information to a separate list. This new list contains dictionaries of information about the Movies and is our fifth dataset. 
-With our list of dictionaries we turned to pandas to create a useful dataframe out of the information we pulled. We ran a for loop to go through the json response and by calling on keys from the json data, we pulled out Title, Year, Rated, Released, Genre, and Type data and appended each to their own list that we defined prior to running the loop. To complete the loop we incorporated a Try-Except function pass Titles that had no match. (We assumed here that this effectively removed T.V. show information from our dataset since OMBd only has movie data.) The last step to setting up our Movie dataframe was to zip our lists together and create the columns names. 
-After checking the return output in the data frame, we discover that the API returned one “series” or rather T.V. show, which we wanted to exclude so that we had a dataframe of only movie data. So we dropped that row. 
-In anticipation of pushing our 5 dataframes to PostgreSQL, when made sure to reset indices , drop duplicate results, and take only the columns of data we wanted (title, rated, genre). And the last step before exporting to PostGreSQL was to set up our dependencies and connection to postgres!
-
-
-### LOADING DATA...
-
-*  Final production database to load the data into PostgreSQL (relational database). 
-
-We chose to use a SQL (relational) database to load our data into because our data was already pretty structured and figured this would be the best database to be queried. There were multiple fields that could be joined on and the data was similar in function. Below is an example of our Create Table Statements and an example query statement.
-
-
-### Final Database
-
-* Our final (Netflix) Database contained 5 tables in postgres (moviedata, viewer1, viewer2, viewer3 ,viewer 4. 
-![results](postgres_results.png)
+<!--
+*** Thanks for checking out this README Template. If you have a suggestion that would
+*** make this better, please fork the repo and create a pull request or simply open
+*** an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+***
+***
+***
+*** To avoid retyping too much info. Do a search and replace for the following:
+*** github_username, repo_name, twitter_handle, email
+-->
 
 
 
-## Source Data
-* https://www.netflix.com/
-* http://www.omdbapi.com/
+
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/lsebahar/Netflix-OMDb-ETL">
+    <img src="netflix.png" alt="Logo" width="1000" height="300">
+  </a>
+
+  <h3 align="center">Netflix - OMDb ETL</h3>
+
+  <p align="center">
+    Scripting ETL to find interesting facts about your Netflix viewing habits!
+    <br />
+    <a href="https://github.com/lsebahar/Netflix-OMDb-ETL"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/lsebahar/Netflix-OMDb-ETL">View Demo</a>
+    ·
+    <a href="https://github.com/lsebahar/Netflix-OMDb-ETL/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/lsebahar/Netflix-OMDb-ETL/issues">Request Feature</a>
+  </p>
+</p>
+
+
+
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+
+Netflix binges have become, for better or worse, part of American culture. With movies chock-full of data, we got an idea--are these unintentional all-day viewing parties-of-one just as random as what catches the viewer's attention? What kind of interesting trends do people have in their viewing history? 
+
+We set out to create an ETL process to empower a user to query stats and discern trends. The general process is relatively simple. Download viewing history data from Netflix. Clean that data, then use the titles to pull data related to cast, genre, etc from the Open Movie Database. Load all of this data to PostgreSQL, then presto: you have the ability to query from a relational database. 
+
+
+### Built With
+
+* Jupyter Notebook
+* Python
+* Pandas
+* JSON
+* SQL
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+1) Download your Netflix viewing history
+
+2) Get an API key from OMDb
+
+3) Download PostgreSQL
+
+4) Install Jupyter Notebook
+
+
+### Installation
+
+1. Clone the repo
+```sh
+git clone https://github.com/lsebahar/Netflix-OMDb-ETL.git
+```
+2. Install NPM packages
+```sh
+npm install
+```
+
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+
+
+<!-- ROADMAP -->
+## Roadmap
+
+See the [open issues](https://github.com/lsebahar/Netflix-OMDb-ETL/issues) for a list of proposed features (and known issues).
+
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Levi Sebahar - leviseb@gmail.com
+
+Project Link: [https://github.com/lsebahar/Netflix-OMDb-ETL](https://github.com/lsebahar/Netflix-OMDb-ETL)
+
+
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+
+* [The Data Science & Visualization Bootcamp]
+* [UCSD Extension]
+* [Alex Perry]
+* [othneildrew (readme template)]
+
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=flat-square
+[contributors-url]: https://github.com/github_username/repo/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=flat-square
+[forks-url]: https://github.com/github_username/repo/network/members
+[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=flat-square
+[stars-url]: https://github.com/github_username/repo/stargazers
+[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=flat-square
+[issues-url]: https://github.com/github_username/repo/issues
+[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=flat-square
+[license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/github_username
+[product-screenshot]: images/screenshot.png
