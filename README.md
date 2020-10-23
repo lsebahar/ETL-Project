@@ -107,7 +107,7 @@ To get a local copy up and running follow these simple steps.
 git clone https://github.com/lsebahar/Netflix-OMDb-ETL.git
 ```
 2. Add a config.py file which contains the variable api_key (for your OMDb key) as well as the connection string to your postgreSQL application. 
-<img src="Images/config_image.png" alt="Logo" width="800" height="100">
+<img src="Images/config_image.png" alt="Logo" width="400" height="100">
 
 ```sh
 api_key = 'apikeyhere'
